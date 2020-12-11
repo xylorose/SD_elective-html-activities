@@ -1,0 +1,327 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliders</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    h1,
+    h4 {
+      text-align: center;
+    }
+
+    .slidecontainer {
+      width: 100%;
+      /* Width of the outside container */
+    }
+
+    /* The slider itself */
+    .slider {
+      -webkit-appearance: none;
+      /* Override default CSS styles */
+      appearance: none;
+      /* width: 100%; Full-width */
+      height: 25px;
+      /* Specified height */
+      background: #d3d3d3;
+      /* Grey background */
+      outline: none;
+      /* Remove outline */
+      opacity: 0.7;
+      /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: .2s;
+      /* 0.2 seconds transition on hover */
+      transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .slider:hover {
+      opacity: 1;
+      /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      /* Override default look */
+      appearance: none;
+      width: 25px;
+      /* Set a specific slider handle width */
+      height: 25px;
+      /* Slider handle height */
+      background: #4CAF50;
+      /* Green background */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      /* Set a specific slider handle width */
+      height: 25px;
+      /* Slider handle height */
+      background: #4CAF50;
+      /* Green background */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Adafruit CLUE Sliders</h1>
+  <h4 id="status-header">Connecting...</h4>
+  <!--Accelerometer-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>AccelerometerX: <span id="accelX"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-1023" max="1023" value="0" class="slider" id="accelX">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>AccelerometerY: <span id="accelY"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-1023" max="1023" value="0" class="slider" id="accelY">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>AccelerometerZ: <span id="accelZ"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-1023" max="1023" value="0" class="slider" id="accelZ">
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!--gyro-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>GyroX: <span id="gyroX"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" id="gyroX">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>GyroY: <span id="gyroY"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" id="gyroY">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>GyroZ: <span id="gyroZ"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" id="gyroZ">
+      </div>
+    </div>
+  </div>
+  <!--temperature-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>Temperature: <span id="temp"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="temp">
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!--pressure-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>Pressure: <span id="pressure"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="800" max="2000" value="1013" class="slider" name="pressure">
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!--magnetometer-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>MagnetometerX: <span id="magnetX"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="magnetX">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>MagnetometerY: <span id="magnetY"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="magnetY">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>MagnetometerZ: <span id="magnetZ"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="magnetZ">
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!--humidity-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>Humidity: <span id="humidity"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="humidity">
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!--proximity-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>Proximity: <span id="proximity"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="proximity">
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!--color-->
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>ColorR: <span id="colorR"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="colorR">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>ColorG: <span id="colorG"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="colorG">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>ColorB: <span id="colorB"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="colorB">
+      </div>
+    </div>
+  </div>
+  <div class="slidecontainer container">
+    <div class="row">
+      <div class="col-xs-2">
+        <p>ColorC: <span id="colorC"></span></p>
+      </div>
+      <div class="col-xs-10">
+        <input type="range" min="-55" max="125" value="0" class="slider" name="colorC">
+      </div>
+    </div>
+  </div>
+  
+  <script src="./browserMqtt.js"></script>
+  <script>
+
+    var broker = 'wss://mqtt.eclipse.org:443/mqtt';
+    var client = mqtt.connect(broker);
+
+    var status_header = document.getElementById('status-header')
+
+    client.on('connect', function () {
+      status_header.innerHTML = 'Connected to ' + broker;
+      console.log('Connected to ' + broker)
+    })
+    //payload to pass
+    let data = {
+      temp:0,
+      pressure:1013,
+      gyroX:0,
+      gyroY:0,
+      gyroZ:0,
+      accelX:0,
+      accelY:0,
+      accelrZ:0,
+      magnetX:0,
+      magnetY:0,
+      magnetZ:0,
+      humidity:0,
+      proximity:0,
+      colorR:0,
+      colorG:0,
+      colorB:0,
+      colorC:0,
+    }
+    //object defined functions
+      let functions ={
+        input: (e) =>{
+          let name = e.target.name;
+          let value = $(`input[name=${name}]`).val();
+          $(`#${name}`).text(value);
+        },
+        mouseup: (e) =>{
+          let name = e.target.name;
+          let value = $(`input[name=${name}]`).val();
+          data[name] =value;
+          client.publish('clue-slider', JSON.stringify(data));
+        }
+      };
+
+      let sliders = $(".slider");
+      console.log(sliders);
+      for(let slider of sliders){
+        for(let key in functions){
+          slider.addEventListener(key, functions[key]);
+        }
+      }
+
+  </script>
+</body>
+
+</html>
